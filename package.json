@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@socket.io/admin-ui": "^0.5.1",
     "axios": "^1.5.0",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
@@ -17,6 +18,8 @@
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.43",
     "morgan": "^1.10.0",
-    "suncalc": "^1.9.0"
+    "socket.io": "^4.7.2",
+    "suncalc": "^1.9.0",
+    "ws": "^8.13.0"
   }
 }
