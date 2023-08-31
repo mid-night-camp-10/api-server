@@ -1,35 +1,13 @@
-const express = require("express");
-const morgan = require("morgan");
-const webSocket = require("./src/socket/socket");
-const { getIssPosition } = require("./src/service/iss.service");
-
-const app = express();
-var server = require("http").createServer(app);
-
-const earthRouter = require("./src/routes/earth.route");
-const issRouter = require("./src/routes/iss.route");
-const weatherRouter = require("./src/routes/weather.route");
-
-app.use(morgan("dev"));
-app.use(express.json());
-
-app.use("/api/earth", earthRouter);
-app.use("/api/iss", issRouter);
-app.use("/api/weather", weatherRouter);
-webSocket(server, app);
-
-app.listen(3000, () => console.log("Listening on port 3000"));
-
 const { WebSocketServer } = require("ws");
 
 // 2. WebSocket 서버 생성/구동
-const wss = new WebSocketServer({ port: 3033, httpServer: server });
+const wss = new WebSocketServer({ port: 3033 });
 
 const getIssPositionPerSec = async (ws) => {
   const msg = await getIssPosition();
 
   // issNamespace.emit("current", msg);
-  ws.send(JSON.stringify(msg)); // 데이터 전송
+  ws.send(msg); // 데이터 전송
 };
 
 wss.on("connection", (ws, request) => {

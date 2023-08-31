@@ -45,3 +45,11 @@ exports.getDaylight = async (req, res, next) => {
   };
   res.status(httpStatus.OK).json(result);
 };
+
+exports.getWeatherByWeatherName = async (req, res, next) => {
+  const weatherName = req.params.weatherName;
+
+  const resImage = { image: null };
+  resImage.image = weatherImage[weatherName];
+  res.status(httpStatus.OK).json(resImage);
+};
