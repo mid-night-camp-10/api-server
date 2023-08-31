@@ -5,6 +5,7 @@ const router = express.Router();
 const weatherController = require("../controller/weather.controller");
 
 router.get("/", weatherController.getWeatherByCityName);
+router.get("/:weatherName", weatherController.getWeatherByWeatherName);
 router.get("/dayLight", weatherController.getDaylight);
 
 module.exports = router;

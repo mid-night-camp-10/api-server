@@ -10,7 +10,7 @@ module.exports = (server, app) => {
     path: "/socket.io",
     transports: ["websocket"],
     cors: {
-      origin: ["https://admin.socket.io"],
+      origin: ["https://admin.socket.io", "http://localhost:3030", "http://localhost:3000"],
       credentials: true,
     },
   }); // socket.io 패키지와 express 서버 연결
