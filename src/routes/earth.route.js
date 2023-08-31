@@ -3,6 +3,6 @@ const express = require("express");
 const router = express.Router();
 const earthController = require("../controller/earth.controller");
 
-router.get("/", earthController.getSunPosition);
+router.get("/dayLight", earthController.getDaylight);
 
 module.exports = router;
