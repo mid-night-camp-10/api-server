@@ -3,9 +3,9 @@ const morgan = require("morgan");
 
 const app = express();
 
-const earthRouter = require("./routes/earth.router");
-const issRouter = require("./routes/iss.router");
-const weatherRouter = require("./routes/weather.router");
+const earthRouter = require("./src/routes/earth.route");
+const issRouter = require("./src/routes/iss.route");
+const weatherRouter = require("./src/routes/weather.route");
 
 app.use(morgan("dev"));
 app.use(express.json());
