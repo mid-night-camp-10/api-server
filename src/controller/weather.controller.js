@@ -27,6 +27,23 @@ exports.getWeatherByCityName = async (req, res, next) => {
   if (["Mist", "Rain"].indexOf(weatherName) !== -1) {
     resImage.image = weatherImage.rain;
   }
+
+  if (["Clear"].indexOf(weatherName) !== -1) {
+    resImage.image = weatherImage.sunny;
+  }
+
+  if (["Clouds"].indexOf(weatherName) !== -1) {
+    resImage.image = weatherImage.cloudy;
+  }
+  
+  if (["Thunderstorm"].indexOf(weatherName) !== -1) {
+    resImage.image = weatherImage.thunderstorms;
+  }
+
+  if (["Tornado"].indexOf(weatherName) !== -1) {
+    resImage.image = weatherImage.typhoon;
+  }
+
   res.status(httpStatus.OK).json(resImage);
 };
 
